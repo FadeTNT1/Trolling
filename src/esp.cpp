@@ -160,6 +160,7 @@ void DrawEntityESP(const std::vector<EntityData>& entities,
 
     float midX = screenX + screenW * 0.5f;
     float midY = screenY + screenH;
+    bool drewSnapline = false;
 
     for (auto& ent : entities) {
         if (!ent.valid) continue;
@@ -249,10 +250,12 @@ void DrawEntityESP(const std::vector<EntityData>& entities,
 
         // ── Snap lines (bottom-center of screen → top-center of box) ─
         if (cfg.showSnaplines) {
-            dl->AddLine(
-                ImVec2(midX, midY),
-                ImVec2((sMinX + sMaxX) * 0.5f, sMaxY),
-                boxColor, 1.0f);
+            float boxCenterX = (sMinX + sMaxX) * 0.5f;
+            float boxCenterTopY = sMinY;
+            dl->AddLine(ImVec2(midX, midY),
+                        ImVec2(boxCenterX, boxCenterTopY),
+                        boxColor, cfg.thickness);
+            drewSnapline = true;
         }
 
         // ── Label ────────────────────────────────────────────────────
@@ -268,5 +271,13 @@ void DrawEntityESP(const std::vector<EntityData>& entities,
 
             dl->AddText(ImVec2(sMinX, sMinY - 14.0f), boxColor, label);
         }
+    }
+
+    // Fallback line so snapline rendering is visible even with no drawable entities.
+    if (cfg.showSnaplines && !drewSnapline) {
+        dl->AddLine(ImVec2(midX, midY),
+                    ImVec2(midX, screenY + screenH * 0.15f),
+                    IM_COL32(0, 255, 0, 255),
+                    cfg.thickness + 1.0f);
     }
 }

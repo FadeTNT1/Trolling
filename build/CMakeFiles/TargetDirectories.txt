@@ -1,4 +1,4 @@
-C:/Users/andre/Development/C++/WD-42/build/CMakeFiles/imgui_lib.dir
-C:/Users/andre/Development/C++/WD-42/build/CMakeFiles/WD42.dir
-C:/Users/andre/Development/C++/WD-42/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/andre/Development/C++/WD-42/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/imgui_lib.dir
+C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/WD42.dir
+C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/ZERO_CHECK.dir

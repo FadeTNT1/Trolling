@@ -1,8 +1,8 @@
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-MKDIR.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-MKDIR.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-mkdirs.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -10,15 +10,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-DOWNLOAD.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-DOWNLOAD.RULE
 setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -26,13 +26,13 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-UPDATE.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-UPDATE.RULE
 setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps\imgui-src
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps\imgui-src
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/tmp/imgui-populate-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -40,11 +40,11 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-PATCH.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-PATCH.RULE
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -52,31 +52,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-CONFIGURE.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-CONFIGURE.RULE
 setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps\imgui-build
-if %errorlevel% neq 0 goto :cmEnd
-C:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-BUILD.RULE
-setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps\imgui-build
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -84,15 +68,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-INSTALL.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-BUILD.RULE
 setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps\imgui-build
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -100,15 +84,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\96EB07B4E558FAD363549756E1E5B00F\IMGUI-POPULATE-TEST.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-INSTALL.RULE
 setlocal
-cd C:\Users\andre\Development\C++\WD-42\build\_deps\imgui-build
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -116,13 +100,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\B972DB1B08876969781EB17FFE937474\IMGUI-POPULATE-COMPLETE.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\1B7239FD0ECE124354D07104AB0161AE\IMGUI-POPULATE-TEST.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/CMakeFiles/Debug
+cd C:\Users\mysta\dev\github\fade\trolling\Trolling\build\_deps\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/CMakeFiles/Debug/imgui-populate-complete
+C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-done
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -130,7 +116,21 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\51255E119376945104C5F0208BD05E18\IMGUI-POPULATE.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\056D5456F3FEA5829AB298C9735208E9\IMGUI-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/CMakeFiles/Debug/imgui-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/Debug/imgui-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\6AC6CCE733D8DA09E6E53D7E50F54CAC\IMGUI-POPULATE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -138,9 +138,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKELISTS.TXT
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild -BC:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild --check-stamp-file C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild -BC:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild --check-stamp-file C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

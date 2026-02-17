@@ -1,6 +1,6 @@
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKELISTS.TXT
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild -BC:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild --check-stamp-file C:/Users/andre/Development/C++/WD-42/build/_deps/imgui-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild -BC:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild --check-stamp-file C:/Users/mysta/dev/github/fade/trolling/Trolling/build/_deps/imgui-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

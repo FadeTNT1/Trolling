@@ -1,6 +1,6 @@
-^C:\USERS\ANDRE\DEVELOPMENT\C++\WD-42\BUILD\CMAKEFILES\01599A790CD8C01F7597DC3B66A3618D\GENERATE.STAMP.RULE
+^C:\USERS\MYSTA\DEV\GITHUB\FADE\TROLLING\TROLLING\BUILD\CMAKEFILES\15B2F7BD9FC9ACFDB06905E99B4E2D36\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/andre/Development/C++/WD-42 -BC:/Users/andre/Development/C++/WD-42/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/andre/Development/C++/WD-42/build/WD42.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mysta/dev/github/fade/trolling/Trolling -BC:/Users/mysta/dev/github/fade/trolling/Trolling/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/mysta/dev/github/fade/trolling/Trolling/build/WD42.slnx
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

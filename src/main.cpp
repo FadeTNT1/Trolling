@@ -11,6 +11,100 @@
 #include <cstdio>
 #include <thread>
 #include <chrono>
+#include <vector>
+#include <cstdint>
+#include <cstdlib>
+
+#ifdef _WIN32
+    #define WIN32_LEAN_AND_MEAN
+    #include <windows.h>
+#endif
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Screen-capture protection (feature-detected; no OS version checks)
+// ─────────────────────────────────────────────────────────────────────────────
+
+static bool IsWaylandSession()
+{
+#ifdef __linux__
+    // Common wayland indicators
+    const char* xdg = std::getenv("XDG_SESSION_TYPE");
+    if (xdg && std::string(xdg) == "wayland") return true;
+
+    const char* waylandDisplay = std::getenv("WAYLAND_DISPLAY");
+    if (waylandDisplay && *waylandDisplay) return true;
+
+    return false;
+#else
+    return false;
+#endif
+}
+
+#ifdef _WIN32
+// We avoid “Windows 11 detection” by version numbers (Windows reports 10.0 for 11).
+// Instead: feature-detect SetWindowDisplayAffinity and attempt EXCLUDEFROMCAPTURE,
+// falling back to MONITOR if needed.
+
+using SetWindowDisplayAffinityFn = BOOL(WINAPI*)(HWND, DWORD);
+
+static SetWindowDisplayAffinityFn ResolveSetWindowDisplayAffinity()
+{
+    HMODULE user32 = GetModuleHandleW(L"user32.dll");
+    if (!user32) user32 = LoadLibraryW(L"user32.dll");
+    if (!user32) return nullptr;
+
+    return reinterpret_cast<SetWindowDisplayAffinityFn>(
+        GetProcAddress(user32, "SetWindowDisplayAffinity"));
+}
+
+static bool ApplyCaptureProtectionToHwnd(HWND hwnd, bool enable)
+{
+    if (!hwnd) return false;
+
+    auto fn = ResolveSetWindowDisplayAffinity();
+    if (!fn) return false;
+
+    // Documented values:
+    // WDA_NONE                 = 0x0
+    // WDA_MONITOR              = 0x1
+    // WDA_EXCLUDEFROMCAPTURE   = 0x11 (Win10 2004+)
+    constexpr DWORD WDA_NONE_ = 0x0;
+    constexpr DWORD WDA_MONITOR_ = 0x1;
+    constexpr DWORD WDA_EXCLUDEFROMCAPTURE_ = 0x11;
+
+    if (!enable)
+        return fn(hwnd, WDA_NONE_) != FALSE;
+
+    // Try strongest first, then fallback.
+    if (fn(hwnd, WDA_EXCLUDEFROMCAPTURE_) != FALSE)
+        return true;
+
+    return fn(hwnd, WDA_MONITOR_) != FALSE;
+}
+#endif
+
+// If your Overlay class exposes the window handle differently, change only this
+// adapter function (keep the rest of this file intact).
+static bool TrySetOverlayCaptureProtection(Overlay& overlay, bool enable)
+{
+#ifdef _WIN32
+    // Expected: overlay exposes HWND via a public member/field or getter.
+    // Common patterns:
+    // - overlay.hwnd
+    // - overlay.GetHwnd()
+    // - overlay.GetWindow()
+    //
+    // This implementation assumes: Overlay has a public member named hwnd.
+    // If not, update this line to match your Overlay interface.
+    HWND hwnd = overlay.hwnd;
+
+    return ApplyCaptureProtectionToHwnd(hwnd, enable);
+#else
+    (void)overlay;
+    (void)enable;
+    return false;
+#endif
+}
 
 int main()
 {
@@ -29,7 +123,11 @@ int main()
 
     // ── Init overlay ─────────────────────────────────────────────────
     Overlay overlay;
+#ifdef _WIN32
     if (!overlay.Init(GetModuleHandleW(nullptr))) {
+#else
+    if (!overlay.Init(nullptr)) {
+#endif
         std::cerr << "[main] Overlay init failed\n";
         if (proc.handle) CloseHandle(proc.handle);
         return 1;
@@ -43,14 +141,34 @@ int main()
     bool f3WasDown = false;
 
     // ── State ────────────────────────────────────────────────────────
-    char addrBuf[32]   = "0x0";
-    char aobBuf[256]   = "48 8B 05 ?? ?? ?? ?? 48 85 C0";
-    char chainBaseBuf[20] = "0x0";
-    char chainOffBuf[128] = "0x10,0x48,0x20";
-    int  readSize       = 4;
-    bool insertWasDown  = false;
-    bool showModules    = false;
-    bool showCmdLine    = false;
+    char addrBuf[32]       = "0x0";
+    char aobBuf[256]       = "48 8B 05 ?? ?? ?? ?? 48 85 C0";
+    char chainBaseBuf[20]  = "0x0";
+    char chainOffBuf[128]  = "0x10,0x48,0x20";
+    int  readSize          = 4;
+    bool insertWasDown     = false;
+    bool showModules       = false;
+    bool showCmdLine       = false;
+
+    // Screen-capture protection UI/state
+    bool isWayland = IsWaylandSession();
+    bool canProtectCapture =
+#ifdef _WIN32
+        (ResolveSetWindowDisplayAffinity() != nullptr);
+#else
+        false;
+#endif
+    bool protectCapture = false;
+
+#ifdef _WIN32
+    // Default ON when supported (KeePass-like behavior).
+    if (canProtectCapture) {
+        protectCapture = true;
+        if (!TrySetOverlayCaptureProtection(overlay, true)) {
+            protectCapture = false;
+        }
+    }
+#endif
 
     // Scanner state
     std::vector<ScanResult> scanResults;
@@ -62,6 +180,7 @@ int main()
     // ── Main loop ────────────────────────────────────────────────────
     while (overlay.running) {
         if (!overlay.PumpMessages()) break;
+#ifdef _WIN32
         if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) break;
 
         // INSERT toggle (edge-triggered)
@@ -77,6 +196,7 @@ int main()
             std::cout << "[esp] ESP " << (espCfg.enabled ? "ON" : "OFF") << "\n";
         }
         f3WasDown = f3Down;
+#endif
 
         // Track Minecraft window
         RECT targetRect{};
@@ -100,7 +220,7 @@ int main()
         }
 
         ImGui::SetNextWindowBgAlpha(0.90f);
-        ImGui::SetNextWindowSize({460, 600}, ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize({460, 650}, ImGuiCond_FirstUseEver);
         if (ImGui::Begin("WD-42 Panel")) {
 
             // ── Process Info (always visible) ────────────────────────
@@ -144,6 +264,40 @@ int main()
                 if (narrow.size() > 512) narrow.resize(512);
                 ImGui::TextWrapped("%s...", narrow.c_str());
             }
+
+            ImGui::Separator();
+
+            // ── Screen capture protection ────────────────────────────
+            ImGui::TextColored({0.4f,0.8f,1.0f,1}, "Screen Capture Protection");
+            ImGui::Separator();
+
+#ifdef _WIN32
+            if (!canProtectCapture) {
+                ImGui::TextColored({1,0.7f,0.2f,1},
+                    "Not available (SetWindowDisplayAffinity missing).");
+            } else {
+                bool changed = ImGui::Checkbox("Exclude overlay from capture", &protectCapture);
+                if (changed) {
+                    bool ok = TrySetOverlayCaptureProtection(overlay, protectCapture);
+                    if (!ok) {
+                        protectCapture = false;
+                    }
+                }
+                ImGui::TextColored({0.6f,0.6f,0.6f,1},
+                    "Uses DWM display affinity (EXCLUDEFROMCAPTURE -> MONITOR fallback).");
+            }
+#else
+            if (isWayland) {
+                ImGui::TextColored({1,0.7f,0.2f,1},
+                    "Wayland session detected: capture hiding is compositor-specific and not implemented here.");
+            } else {
+                ImGui::TextColored({1,0.7f,0.2f,1},
+                    "Non-Windows build: capture hiding not implemented.");
+            }
+            ImGui::BeginDisabled(true);
+            ImGui::Checkbox("Exclude overlay from capture", &protectCapture);
+            ImGui::EndDisabled();
+#endif
 
             ImGui::Separator();
 
