@@ -1,4 +1,0 @@
-C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/imgui_lib.dir
-C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/WD42.dir
-C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/mysta/dev/github/fade/trolling/Trolling/build/CMakeFiles/ZERO_CHECK.dir
