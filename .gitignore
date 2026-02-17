@@ -1,5 +1,5 @@
 *.exe
-build/
-.vs/
+build
+.vs
 
 *.exe
